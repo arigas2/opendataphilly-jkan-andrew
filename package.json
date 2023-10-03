@@ -2,8 +2,9 @@
   "name": "jkan",
   "description": "A lightweight, backend-free open data portal, powered by Jekyll",
   "scripts": {
-    "watch": "parcel watch scripts/src/index.js --dist-dir _site/scripts/dist",
-    "build": "parcel build scripts/src/index.js --dist-dir scripts/dist"
+    "watch": "pagefind --site _site/datasets --output-path scripts/src/pagefind && parcel watch scripts/src/index.js --dist-dir _site/scripts/dist",
+    "build": "parcel build scripts/src/index.js --dist-dir scripts/dist",
+    "pagefind": "pagefind --site _site/datasets --output-path _site/scripts/dist/pagefind"
   },
   "targets": {
     "modern": {
@@ -24,7 +25,9 @@
   },
   "homepage": "https://github.com/azavea/opendataphilly-jkan/",
   "devDependencies": {
+    "buffer": "^5.7.1",
     "core-js": "^3.29.0",
+    "os-browserify": "^0.3.0",
     "parcel": "^2.8.3",
     "process": "^0.11.10"
   },
@@ -32,6 +35,7 @@
     "bootstrap": "^5.0.2",
     "jquery": "^3.4.1",
     "jquery-deparam": "^0.5.3",
-    "lodash": "^4.17.11"
+    "lodash": "^4.17.11",
+    "pagefind": "^1.0.3"
   }
 }

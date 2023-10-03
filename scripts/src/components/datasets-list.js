@@ -56,8 +56,9 @@ export default class {
   // The function returns the filtered array of datasets
   _createSearchFunction (datasets) {
     const keys = ['title', 'notes']
-    return function (query) {
+    return async function (query) {
       const lowerCaseQuery = query.toLowerCase()
+      const pagefind = await import("../pagefind/pagefind.js");
       return filter(datasets, function (dataset) {
         return keys.reduce(function (previousValue, key) {
           return previousValue || (dataset[key] && dataset[key].toLowerCase().indexOf(lowerCaseQuery) !== -1)
